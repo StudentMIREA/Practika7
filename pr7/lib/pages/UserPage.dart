@@ -11,9 +11,8 @@ class _UserPageState extends State<UserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-      ),
+      backgroundColor: Colors.white,
+      body: Container(),
     );
   }
 }

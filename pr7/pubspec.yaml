@@ -64,6 +64,55 @@ flutter:
     - lib/images/SelHome.png
     - lib/images/SelCart.png
     - lib/images/SelUser.png
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: lib/fonts/Montserrat-Thin.ttf
+          weight: 100
+        - asset: lib/fonts/Montserrat-ThinItalic.ttf
+          style: italic
+          weight: 100
+        - asset: lib/fonts/Montserrat-ExtraLight.ttf
+          weight: 200
+        - asset: lib/fonts/Montserrat-ExtraLightItalic.ttf
+          style: italic
+          weight: 200
+        - asset: lib/fonts/Montserrat-Light.ttf
+          weight: 300
+        - asset: lib/fonts/Montserrat-LightItalic.ttf
+          style: italic
+          weight: 300
+        - asset: lib/fonts/Montserrat-Regular.ttf
+          weight: 400
+        - asset: lib/fonts/Montserrat-RegularItalic.ttf
+          style: italic
+          weight: 400
+        - asset: lib/fonts/Montserrat-Medium.ttf
+          weight: 500
+        - asset: lib/fonts/Montserrat-MediumItalic.ttf
+          style: italic
+          weight: 500
+        - asset: lib/fonts/Montserrat-SemiBold.ttf
+          weight: 600
+        - asset: lib/fonts/Montserrat-SemiBoldItalic.ttf
+          style: italic
+          weight: 600
+        - asset: lib/fonts/Montserrat-Bold.ttf
+          weight: 700
+        - asset: lib/fonts/Montserrat-BoldItalic.ttf
+          style: italic
+          weight: 700
+        - asset: lib/fonts/Montserrat-ExtraBold.ttf
+          weight: 800
+        - asset: lib/fonts/Montserrat-ExtraBoldItalic.ttf
+          style: italic
+          weight: 800
+        - asset: lib/fonts/Montserrat-Black.ttf
+          weight: 900
+        - asset: lib/fonts/Montserrat-BlackItalic.ttf
+          style: italic
+          weight: 900
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

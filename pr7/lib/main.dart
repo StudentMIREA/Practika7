@@ -85,13 +85,16 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
           currentIndex: selectedIndex,
           selectedItemColor: Color.fromARGB(255, 26, 111, 238),
-          selectedLabelStyle:
-              const TextStyle(fontSize: 12, fontFamily: 'Montserrat'),
+          selectedLabelStyle: const TextStyle(
+              fontSize: 12,
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w300),
           unselectedItemColor: Color.fromARGB(255, 137, 138, 141),
           unselectedLabelStyle: const TextStyle(
               color: Color.fromARGB(255, 137, 138, 141),
               fontSize: 12,
-              fontFamily: 'Montserrat'),
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w300),
           onTap: onTab,
         ),
       ),
