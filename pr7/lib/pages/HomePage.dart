@@ -28,7 +28,9 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.black,
                             fontSize: 24.0,
                             fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w500),
+                            fontWeight: FontWeight.w500,
+                            height: 1.2,
+                            wordSpacing: 0.33),
                       ),
                     )
 // Список услуг
