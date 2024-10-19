@@ -85,16 +85,16 @@ flutter:
           weight: 300
         - asset: lib/fonts/Montserrat-Regular.ttf
           weight: 400
-        - asset: lib/fonts/Montserrat-RegularItalic.ttf
-          style: italic
-          weight: 400
+        # - asset: lib/fonts/Montserrat-RegularItalic.ttf
+        #  style: italic
+        #  weight: 400
         - asset: lib/fonts/Montserrat-Medium.ttf
           weight: 500
         - asset: lib/fonts/Montserrat-MediumItalic.ttf
           style: italic
           weight: 500
-        - asset: lib/fonts/Montserrat-SemiBold.ttf
-          weight: 600
+        # - asset: lib/fonts/Montserrat-SemiBold.ttfS
+        #  weight: 600
         - asset: lib/fonts/Montserrat-SemiBoldItalic.ttf
           style: italic
           weight: 600

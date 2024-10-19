@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pr7/model/item.dart';
+import 'package:pr7/model/shopItem.dart';
+import 'package:pr7/pages/components/ItemsList.dart';
 
 class ListOfItems extends StatefulWidget {
   const ListOfItems({super.key, required this.item});
@@ -25,6 +27,16 @@ class _ListOfItemsState extends State<ListOfItems> {
     }
   }
 
+  void AddShopList(int i) {
+    setState(() {
+      if (!ShopList.any((item) => item.index == i)) {
+        ShopList.add(ShopItem(i, 1));
+      } else {
+        ShopList.removeAt(ShopList.indexWhere((item) => item.index == i));
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -43,21 +55,24 @@ class _ListOfItemsState extends State<ListOfItems> {
           child: Column(
             children: [
 // Заголовок услуги
-              Text(
-                widget.item.name,
-                style: const TextStyle(
-                  fontSize: 16.0,
-                  color: Colors.black,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w400,
-                  height: 1.25,
-                  letterSpacing: -0.32,
-                ),
+              Container(
+                width: double.infinity,
+                child: Text(widget.item.name,
+                    style: const TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.black,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w400,
+                      height: 1.25,
+                      letterSpacing: -0.32,
+                    ),
+                    textAlign: TextAlign.left),
               ),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
 // Дни и стоимость
                       SizedBox(
@@ -99,37 +114,76 @@ class _ListOfItemsState extends State<ListOfItems> {
                         child: Align(
                           alignment: Alignment.bottomRight,
                           child: SizedBox(
-                            height: 40.0,
-                            width: 96.0,
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                shape: WidgetStateProperty.all(
-                                    RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10))),
-                                backgroundColor: WidgetStateProperty.all(
-                                    const Color.fromARGB(255, 26, 111, 238)),
-                                foregroundColor:
-                                    WidgetStateProperty.all(Colors.white),
-                                padding: WidgetStateProperty.all(
-                                    const EdgeInsets.all(0)),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'Добавить',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 14.0,
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.4,
-                                    letterSpacing: 0,
-                                  ),
-                                ),
-                              ),
-                              onPressed: () {},
-                            ),
-                          ),
+                              height: 40.0,
+                              width: 96.0,
+                              child: !ShopList.any(
+                                      (item) => item.index == widget.item.id)
+                                  ? ElevatedButton(
+                                      style: ButtonStyle(
+                                        shape: WidgetStateProperty.all(
+                                            RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10))),
+                                        backgroundColor:
+                                            WidgetStateProperty.all(
+                                                const Color.fromARGB(
+                                                    255, 26, 111, 238)),
+                                        foregroundColor:
+                                            WidgetStateProperty.all(
+                                                Colors.white),
+                                        padding: WidgetStateProperty.all(
+                                            const EdgeInsets.all(0)),
+                                      ),
+                                      child: const Center(
+                                        child: Text(
+                                          'Добавить',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14.0,
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w500,
+                                            height: 1.4,
+                                            letterSpacing: 0,
+                                          ),
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        AddShopList(widget.item.id);
+                                      },
+                                    )
+                                  : ElevatedButton(
+                                      style: ButtonStyle(
+                                        shape: WidgetStateProperty.all(
+                                            RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10))),
+                                        backgroundColor:
+                                            WidgetStateProperty.all(
+                                                const Color.fromARGB(
+                                                    255, 132, 132, 132)),
+                                        foregroundColor:
+                                            WidgetStateProperty.all(
+                                                Colors.white),
+                                        padding: WidgetStateProperty.all(
+                                            const EdgeInsets.all(0)),
+                                      ),
+                                      child: const Center(
+                                        child: Text(
+                                          'В корзине',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14.0,
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w500,
+                                            height: 1.4,
+                                            letterSpacing: 0,
+                                          ),
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        AddShopList(widget.item.id);
+                                      },
+                                    )),
                         ),
                       )
                     ],
