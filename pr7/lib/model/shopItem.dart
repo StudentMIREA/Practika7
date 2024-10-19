@@ -1,6 +1,6 @@
 class ShopItem {
   final int index;
-  final int people;
+  int people;
 
   ShopItem(this.index, this.people);
 }

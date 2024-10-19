@@ -25,6 +25,20 @@ class _ListOfItemShopState extends State<ListOfItemShop> {
     }
   }
 
+  void AddPerson(int i) {
+    setState(() {
+      ShopList.elementAt(ShopList.indexWhere((element) => element.index == i))
+          .people += 1;
+    });
+  }
+
+  void DeletePerson(int i) {
+    setState(() {
+      ShopList.elementAt(ShopList.indexWhere((element) => element.index == i))
+          .people -= 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -43,51 +57,44 @@ class _ListOfItemShopState extends State<ListOfItemShop> {
             Padding(
               padding:
                   const EdgeInsets.only(right: 16.0, left: 16.0, top: 16.0),
-              child: IntrinsicWidth(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        width: double.infinity,
-                        child: Text(
-                          widget.item.name,
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.black,
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w400,
-                            height: 1.25,
-                            letterSpacing: -0.32,
-                          ),
-                          softWrap: true,
-                        ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 275,
+                    child: Text(
+                      widget.item.name,
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.black,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w400,
+                        height: 1.25,
+                        letterSpacing: -0.32,
                       ),
+                      textAlign: TextAlign.left,
+                      softWrap: true,
                     ),
+                  ),
 // Иконка удаления услуги из корзины
-                    Align(
+                  Expanded(
+                    child: Align(
                       alignment: Alignment.topRight,
-                      child: SizedBox(
-                        height: 10.0,
-                        width: 10.0,
-                        child: Transform.rotate(
-                            angle: 3.14 / 4,
-                            child: IconButton(
-                              onPressed: () => {
-                                setState(() {
-                                  print('Ну хотя бы сюда попал');
-                                  widget.DeleteShopItem(widget.item.id);
-                                })
-                              },
-                              icon: const Icon(
-                                Icons.add,
-                                color: Color.fromARGB(255, 126, 126, 154),
-                              ),
-                            )),
-                      ),
+                      child: GestureDetector(
+                          onTap: () {
+                            widget.DeleteShopItem(widget.item.id);
+                          },
+                          child: Container(
+                            color: const Color.fromRGBO(255, 0, 0, 0),
+                            height: 20.0,
+                            width: 20.0,
+                            child: const Icon(Icons.close,
+                                color: Color.fromARGB(255, 126, 126, 154)),
+                          )),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
 // Цена и количество человек
@@ -132,36 +139,80 @@ class _ListOfItemShopState extends State<ListOfItemShop> {
                                 height: 32,
                                 width: 64,
                                 decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 245, 245, 249),
+                                    color: const Color.fromARGB(
+                                        255, 245, 245, 249),
                                     borderRadius: BorderRadius.circular(8.0)),
                                 child: Expanded(
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      SizedBox(
-                                        height: 12,
-                                        width: 12,
-                                        child: IconButton(
-                                            onPressed: () {},
-                                            icon: const Icon(
-                                              Icons.remove,
-                                              color: Color.fromARGB(
-                                                  255, 184, 193, 204),
-                                            )),
+// Уменьшение количества человек
+                                      ShopList.elementAt(ShopList.indexWhere(
+                                                  (element) =>
+                                                      element.index ==
+                                                      widget.item.id)).people ==
+                                              1
+                                          ? Center(
+                                              child: Container(
+                                                color: const Color.fromRGBO(
+                                                    255, 0, 0, 0),
+                                                height: 20.0,
+                                                width: 20.0,
+                                                child: const Icon(
+                                                  Icons.remove,
+                                                  color: Color.fromARGB(
+                                                      255, 184, 193, 204),
+                                                ),
+                                              ),
+                                            )
+                                          : GestureDetector(
+                                              onTap: () {
+                                                DeletePerson(widget.item.id);
+                                              },
+                                              child: Center(
+                                                child: Container(
+                                                  color: const Color.fromRGBO(
+                                                      255, 0, 0, 0),
+                                                  height: 20.0,
+                                                  width: 20.0,
+                                                  child: const Icon(
+                                                    Icons.remove,
+                                                    color: Color.fromARGB(
+                                                        255, 147, 147, 150),
+                                                  ),
+                                                ),
+                                              )),
+                                      Container(
+                                        width: 12.0,
+                                        child: Center(
+                                          child: Container(
+                                            height: 16.0,
+                                            width: 1.0,
+                                            color: Color.fromARGB(
+                                                255, 235, 235, 235),
+                                          ),
+                                        ),
                                       ),
-                                      SizedBox(
-                                        height: 12,
-                                        width: 12,
-                                        child: IconButton(
-                                            onPressed: () {},
-                                            icon: const Icon(
-                                              Icons.add,
-                                              color: Color.fromARGB(
-                                                  255, 184, 193, 204),
-                                            )),
-                                      ),
+// Увеличение количества человек
+                                      GestureDetector(
+                                          onTap: () {
+                                            AddPerson(widget.item.id);
+                                          },
+                                          child: Center(
+                                            child: Container(
+                                              color: const Color.fromRGBO(
+                                                  255, 0, 0, 0),
+                                              height: 20.0,
+                                              width: 20.0,
+                                              child: const Icon(
+                                                Icons.add,
+                                                color: Color.fromARGB(
+                                                    255, 147, 147, 150),
+                                              ),
+                                            ),
+                                          )),
                                     ],
                                   ),
                                 ),

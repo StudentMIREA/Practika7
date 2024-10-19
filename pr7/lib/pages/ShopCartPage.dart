@@ -15,16 +15,12 @@ class _ShopCartPageState extends State<ShopCartPage> {
       (item) => ShopList.any((element) => element.index == item.id)).toList();
 
   void AddShopList(int i) {
-    print('Попал 1');
     setState(() {
-      print('Попал 2');
       if (ShopList.any((item) => item.index == i)) {
         ShopList.removeAt(ShopList.indexWhere((item) => item.index == i));
         ShopCartList = ItemsList.where(
                 (item) => ShopList.any((element) => element.index == item.id))
             .toList();
-        print(ShopList);
-        print('Попал 3');
       }
     });
   }
