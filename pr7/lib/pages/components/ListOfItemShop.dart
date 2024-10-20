@@ -4,10 +4,16 @@ import 'package:pr7/pages/components/ItemsList.dart';
 
 class ListOfItemShop extends StatefulWidget {
   const ListOfItemShop(
-      {super.key, required this.item, required this.DeleteShopItem});
+      {super.key,
+      required this.item,
+      required this.DeleteShopItem,
+      required this.AddPerson,
+      required this.DeletePerson});
 
   final Item item;
   final Function(int i) DeleteShopItem;
+  final Function(int i) AddPerson;
+  final Function(int i) DeletePerson;
 
   @override
   State<ListOfItemShop> createState() => _ListOfItemShopState();
@@ -23,20 +29,6 @@ class _ListOfItemShopState extends State<ListOfItemShop> {
     } else {
       return '${i} человек';
     }
-  }
-
-  void AddPerson(int i) {
-    setState(() {
-      ShopList.elementAt(ShopList.indexWhere((element) => element.index == i))
-          .people += 1;
-    });
-  }
-
-  void DeletePerson(int i) {
-    setState(() {
-      ShopList.elementAt(ShopList.indexWhere((element) => element.index == i))
-          .people -= 1;
-    });
   }
 
   @override
@@ -108,7 +100,8 @@ class _ListOfItemShopState extends State<ListOfItemShop> {
                   child: SizedBox(
                     child: Row(
                       children: [
-                        Text('${widget.item.cost} ₽',
+                        Text(
+                            '${widget.item.cost * ShopList.elementAt(ShopList.indexWhere((element) => element.index == widget.item.id)).people} ₽',
                             style: const TextStyle(
                                 fontSize: 17.0,
                                 color: Colors.black,
@@ -169,7 +162,8 @@ class _ListOfItemShopState extends State<ListOfItemShop> {
                                             )
                                           : GestureDetector(
                                               onTap: () {
-                                                DeletePerson(widget.item.id);
+                                                widget.DeletePerson(
+                                                    widget.item.id);
                                               },
                                               child: Center(
                                                 child: Container(
@@ -198,7 +192,7 @@ class _ListOfItemShopState extends State<ListOfItemShop> {
 // Увеличение количества человек
                                       GestureDetector(
                                           onTap: () {
-                                            AddPerson(widget.item.id);
+                                            widget.AddPerson(widget.item.id);
                                           },
                                           child: Center(
                                             child: Container(

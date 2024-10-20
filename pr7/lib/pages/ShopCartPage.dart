@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:pr7/model/item.dart';
 import 'package:pr7/pages/components/ItemsList.dart';
@@ -14,6 +16,14 @@ class _ShopCartPageState extends State<ShopCartPage> {
   List<Item> ShopCartList = ItemsList.where(
       (item) => ShopList.any((element) => element.index == item.id)).toList();
 
+  double cost = ShopList.fold(
+      0.0,
+      (sum, item) =>
+          sum +
+          item.people *
+              ItemsList.elementAt(
+                  ItemsList.indexWhere((el) => el.id == item.index)).cost);
+
   void AddShopList(int i) {
     setState(() {
       if (ShopList.any((item) => item.index == i)) {
@@ -21,7 +31,43 @@ class _ShopCartPageState extends State<ShopCartPage> {
         ShopCartList = ItemsList.where(
                 (item) => ShopList.any((element) => element.index == item.id))
             .toList();
+        cost = ShopList.fold(
+            0.0,
+            (sum, item) =>
+                sum +
+                item.people *
+                    ItemsList.elementAt(
+                            ItemsList.indexWhere((el) => el.id == item.index))
+                        .cost);
       }
+    });
+  }
+
+  void AddPerson(int i) {
+    setState(() {
+      ShopList.elementAt(ShopList.indexWhere((element) => element.index == i))
+          .people += 1;
+      cost = ShopList.fold(
+          0.0,
+          (sum, item) =>
+              sum +
+              item.people *
+                  ItemsList.elementAt(
+                      ItemsList.indexWhere((el) => el.id == item.index)).cost);
+    });
+  }
+
+  void DeletePerson(int i) {
+    setState(() {
+      ShopList.elementAt(ShopList.indexWhere((element) => element.index == i))
+          .people -= 1;
+      cost = ShopList.fold(
+          0.0,
+          (sum, item) =>
+              sum +
+              item.people *
+                  ItemsList.elementAt(
+                      ItemsList.indexWhere((el) => el.id == item.index)).cost);
     });
   }
 
@@ -31,10 +77,12 @@ class _ShopCartPageState extends State<ShopCartPage> {
         backgroundColor: Colors.white,
         body: ShopList.length == 0
             ? const Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                     padding:
-                        EdgeInsets.only(top: 48.0, left: 27.0, bottom: 22.0),
+                        EdgeInsets.only(top: 92.0, left: 27.0, bottom: 22.0),
                     child: Text(
                       'Корзина',
                       style: TextStyle(
@@ -45,6 +93,9 @@ class _ShopCartPageState extends State<ShopCartPage> {
                           height: 1.2,
                           wordSpacing: 0.33),
                     ),
+                  ),
+                  const SizedBox(
+                    height: 100.0,
                   ),
                   Center(
                     child: Text(
@@ -82,15 +133,15 @@ class _ShopCartPageState extends State<ShopCartPage> {
                         )
 // сумма товаров в корзине
                       : index == ShopCartList.length + 1
-                          ? const Padding(
-                              padding: EdgeInsets.only(
+                          ? Padding(
+                              padding: const EdgeInsets.only(
                                   top: 24.0,
                                   left: 28.0,
                                   right: 28.0,
                                   bottom: 20.0),
                               child: Row(
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Сумма',
                                     style: TextStyle(
                                         color: Colors.black,
@@ -104,8 +155,8 @@ class _ShopCartPageState extends State<ShopCartPage> {
                                       child: Align(
                                           alignment: Alignment.centerRight,
                                           child: Text(
-                                            'cost',
-                                            style: TextStyle(
+                                            '${cost} ₽',
+                                            style: const TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 20.0,
                                                 fontFamily: 'Montserrat',
@@ -119,7 +170,10 @@ class _ShopCartPageState extends State<ShopCartPage> {
 // Список услуг
                           : ListOfItemShop(
                               item: ShopCartList.elementAt(index - 1),
-                              DeleteShopItem: (int i) => AddShopList(i));
+                              DeleteShopItem: (int i) => AddShopList(i),
+                              AddPerson: (int i) => AddPerson(i),
+                              DeletePerson: (int i) => DeletePerson(i),
+                            );
                 }));
   }
 }

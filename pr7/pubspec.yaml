@@ -64,6 +64,10 @@ flutter:
     - lib/images/SelHome.png
     - lib/images/SelCart.png
     - lib/images/SelUser.png
+    - lib/images/adress.png
+    - lib/images/cards.png
+    - lib/images/order.png
+    - lib/images/settings.png
 
   fonts:
     - family: Montserrat
