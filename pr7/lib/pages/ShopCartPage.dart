@@ -90,12 +90,12 @@ class _ShopCartPageState extends State<ShopCartPage> {
                           fontSize: 24.0,
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w500,
-                          height: 1.2,
+                          height: 28 / 24,
                           wordSpacing: 0.33),
                     ),
                   ),
                   const SizedBox(
-                    height: 100.0,
+                    height: 200.0,
                   ),
                   Center(
                     child: Text(
@@ -127,7 +127,7 @@ class _ShopCartPageState extends State<ShopCartPage> {
                                 fontSize: 24.0,
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.w500,
-                                height: 1.2,
+                                height: 28 / 24,
                                 wordSpacing: 0.33),
                           ),
                         )
@@ -148,7 +148,7 @@ class _ShopCartPageState extends State<ShopCartPage> {
                                         fontSize: 20.0,
                                         fontFamily: 'Montserrat',
                                         fontWeight: FontWeight.w500,
-                                        height: 1.4,
+                                        height: 28 / 20,
                                         letterSpacing: 0.38),
                                   ),
                                   Expanded(
@@ -161,7 +161,7 @@ class _ShopCartPageState extends State<ShopCartPage> {
                                                 fontSize: 20.0,
                                                 fontFamily: 'Montserrat',
                                                 fontWeight: FontWeight.w500,
-                                                height: 1.4,
+                                                height: 28 / 20,
                                                 letterSpacing: 0.38),
                                           )))
                                 ],

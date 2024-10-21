@@ -27,7 +27,7 @@ class _UserPageState extends State<UserPage> {
                     fontSize: 24.0,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w500,
-                    height: 1.2,
+                    height: 28 / 24,
                     wordSpacing: 0.33),
               ),
             ),
@@ -39,7 +39,7 @@ class _UserPageState extends State<UserPage> {
                       fontSize: 15.0,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.w500,
-                      height: 1,
+                      height: 16 / 15,
                       wordSpacing: 0.33),
                   textAlign: TextAlign.left),
             ),
@@ -51,7 +51,7 @@ class _UserPageState extends State<UserPage> {
                       fontSize: 15.0,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.w500,
-                      height: 1,
+                      height: 16 / 15,
                       wordSpacing: 0.33),
                   textAlign: TextAlign.left),
             ),
@@ -59,6 +59,7 @@ class _UserPageState extends State<UserPage> {
             Padding(
               padding: const EdgeInsets.only(left: 27.0),
               child: Container(
+                height: 256,
                 child: Column(
                   children: [
                     Container(
@@ -99,7 +100,7 @@ class _UserPageState extends State<UserPage> {
                                 fontSize: 17.0,
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.w400,
-                                height: 1.4,
+                                height: 24 / 17,
                                 wordSpacing: 0),
                           )
                         ],
@@ -121,7 +122,7 @@ class _UserPageState extends State<UserPage> {
                                 fontSize: 17.0,
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.w400,
-                                height: 1.4,
+                                height: 24 / 17,
                                 wordSpacing: 0),
                           )
                         ],
@@ -143,7 +144,7 @@ class _UserPageState extends State<UserPage> {
                                 fontSize: 17.0,
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.w400,
-                                height: 1.4,
+                                height: 24 / 17,
                                 wordSpacing: 0),
                           )
                         ],
@@ -159,55 +160,68 @@ class _UserPageState extends State<UserPage> {
             Center(
                 child: Container(
                     child: const Column(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  'Ответы на вопросы',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 147, 147, 150),
-                      fontSize: 15.0,
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w300,
-                      height: 1.3,
-                      wordSpacing: 0),
+                SizedBox(
+                  height: 20,
+                  child: Text(
+                    'Ответы на вопросы',
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 147, 147, 150),
+                        fontSize: 15.0,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w300,
+                        height: 20 / 15,
+                        wordSpacing: 0),
+                  ),
                 ),
                 SizedBox(
                   height: 24.0,
                 ),
-                Text(
-                  'Политика конфиденциальности',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 147, 147, 150),
-                      fontSize: 15.0,
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w300,
-                      height: 1.3,
-                      wordSpacing: 0),
+                SizedBox(
+                  height: 20,
+                  child: Text(
+                    'Политика конфиденциальности',
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 147, 147, 150),
+                        fontSize: 15.0,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w300,
+                        height: 20 / 15,
+                        wordSpacing: 0),
+                  ),
                 ),
                 SizedBox(
                   height: 24.0,
                 ),
-                Text(
-                  'Пользовательское соглашение',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 147, 147, 150),
-                      fontSize: 15.0,
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w300,
-                      height: 1.3,
-                      wordSpacing: 0),
+                SizedBox(
+                  height: 20,
+                  child: Text(
+                    'Пользовательское соглашение',
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 147, 147, 150),
+                        fontSize: 15.0,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w300,
+                        height: 20 / 15,
+                        wordSpacing: 0),
+                  ),
                 ),
                 SizedBox(
                   height: 24.0,
                 ),
-                Text(
-                  'Выход',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 253, 53, 53),
-                      fontSize: 15.0,
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w300,
-                      height: 1.3,
-                      wordSpacing: 0),
+                SizedBox(
+                  height: 20,
+                  child: Text(
+                    'Выход',
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 253, 53, 53),
+                        fontSize: 15.0,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w300,
+                        height: 20 / 15,
+                        wordSpacing: 0),
+                  ),
                 ),
               ],
             )))

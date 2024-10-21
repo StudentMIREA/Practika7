@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
                             fontSize: 24.0,
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.w500,
-                            height: 1.2,
+                            height: 28 / 24,
                             wordSpacing: 0.33),
                       ),
                     )

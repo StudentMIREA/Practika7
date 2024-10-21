@@ -62,7 +62,7 @@ class _ListOfItemShopState extends State<ListOfItemShop> {
                         color: Colors.black,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w400,
-                        height: 1.25,
+                        height: 20 / 16,
                         letterSpacing: -0.32,
                       ),
                       textAlign: TextAlign.left,
@@ -107,7 +107,7 @@ class _ListOfItemShopState extends State<ListOfItemShop> {
                                 color: Colors.black,
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.w400,
-                                height: 1.4,
+                                height: 24 / 17,
                                 letterSpacing: 0)),
                         Expanded(
                           child: Row(
@@ -123,7 +123,7 @@ class _ListOfItemShopState extends State<ListOfItemShop> {
                                       color: Colors.black,
                                       fontFamily: 'Montserrat',
                                       fontWeight: FontWeight.w300,
-                                      height: 1.4,
+                                      height: 20 / 15,
                                       letterSpacing: 0)),
                               const SizedBox(
                                 width: 16.0,
