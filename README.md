@@ -7,13 +7,16 @@
 
 #### 1. Через файл pubspec.yaml добавлены необходимые иконки и шрифт
 
+<img src="https://github.com/user-attachments/assets/0e08b206-0c3f-4bbb-8cbc-f0fe5959c877" width="300">
+<img src="https://github.com/user-attachments/assets/640c71d6-3826-41d9-9981-ac85050a6915" width="300">
+
 #### 2. Создание главной страницы с товарами. 
 На главной странице находятся карточки товаров. Внизу находится панель навигации.
 
 При нажатии на кнопку "В корзину", товар отправляется в корзину. При повторном нажатии товар удаляется из корзины.
 
-<img src="https://github.com/user-attachments/assets/cab46fd8-8124-4487-9c09-41a11126adea" width="300">
-<img src="https://github.com/user-attachments/assets/313b3de8-94fa-4ae2-b1ce-1ac5acc9ca65" width="300">
+<img src="https://github.com/user-attachments/assets/8e9c145c-b0c5-489d-8661-986984f21feb" width="300">
+<img src="https://github.com/user-attachments/assets/e3ad32c4-0d92-4d85-b44a-19eabaacc748" width="300">
 
 #### 3. Создание страницы корзины.
 
@@ -21,15 +24,16 @@
 
 У каждого товара можно выбрать количество товаров. При нажатии на крестик товар удаляется из корзины.
 
-<img src="https://github.com/user-attachments/assets/e580c52e-1692-405e-bb03-383c36fa421c" width="300">
-<img src="https://github.com/user-attachments/assets/27c442d0-969f-42e1-9a66-c69825e28d96" width="300">
+<img src="https://github.com/user-attachments/assets/6197ce88-8e51-4ad7-8424-79aeba5491a3" width="300">
+<img src="https://github.com/user-attachments/assets/852b4a36-ac17-4e8a-9c3f-9b5ae09a24b2" width="300">
 
 #### 4. Создание страницы профиля.
 На этой странице находится информация о пользователе. Внизу находится панель навигации.
 
-<img src="https://github.com/user-attachments/assets/264b592b-9192-44b0-9baa-f1bf5f5e940a" width="300">
+<img src="https://github.com/user-attachments/assets/16adf862-660e-4002-b226-d667a4f90d76" width="300">
 
 #### Конечный результат
 
-https://github.com/user-attachments/assets/78da1f48-9b99-44c0-a1d5-d6fbeb2a01eb
+https://github.com/user-attachments/assets/c5abe70c-2a0b-4991-a28a-ed0ba72b0947
+
 
