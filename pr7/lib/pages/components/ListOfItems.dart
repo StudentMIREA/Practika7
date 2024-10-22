@@ -18,7 +18,9 @@ class _ListOfItemsState extends State<ListOfItems> {
     final list1 = ['2', '3', '4'];
     final list2 = ['0', '5', '6', '7', '8', '9'];
     final day = (i % 10).toString();
-    if (list1.contains(day)) {
+    if (i < 20 || i > 10) {
+      return '${i} дней';
+    } else if (list1.contains(day)) {
       return '${i} дня';
     } else if (list2.contains(day)) {
       return '${i} дней';

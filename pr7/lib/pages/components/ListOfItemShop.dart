@@ -24,7 +24,9 @@ class _ListOfItemShopState extends State<ListOfItemShop> {
   String SclWordPeople(int i) {
     final list1 = ['2', '3', '4'];
     final day = (i % 10).toString();
-    if (list1.contains(day)) {
+    if (i < 20 || i > 10) {
+      return '${i} человек';
+    } else if (list1.contains(day)) {
       return '${i} человека';
     } else {
       return '${i} человек';
